@@ -9,3 +9,5 @@ pypdf2
 python-dotenv
 pandas
 numpy
+pdfplumber
+pytest

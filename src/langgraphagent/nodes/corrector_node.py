@@ -20,6 +20,8 @@ class CorrectorNode:
             HumanMessage(
                 content=f"""The Python code you generated has failed the tests.
 
+                **Crucial Instruction:** The parser must dynamically identify the table headers (like 'Date', 'Description', 'Debit Amt', etc.) from the PDF content itself before extracting the rows. Do not use a hardcoded list of columns. The final DataFrame must match the structure of `data/{state["target_bank"]}/result.csv`.
+
                 Original Plan: {state['plan']}
                 Your Code:
                 ```python
@@ -27,7 +29,7 @@ class CorrectorNode:
                 ```
                 Test Error Message: '{state['error_message']}'
 
-                Analyze the error and the code. Then, write a new, corrected version of the Python code.
+                Analyze the error and the code. Then, write a new, corrected version of the Python code that correctly identifies headers from the PDF.
                 Provide only the raw Python code, without markdown formatting or explanations.
                 Your goal is to fix the bug so the tests will pass.
                 """
@@ -37,3 +39,4 @@ class CorrectorNode:
         code = response.content.strip().replace("```python", "").replace("```", "")
         write_code_to_file(state["target_bank"], code)
         return {"generated_code": code, "retries_left": retries}
+

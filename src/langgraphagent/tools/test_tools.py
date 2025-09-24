@@ -7,8 +7,8 @@ def run_tests(target_bank: str) -> str:
     It dynamically imports the parser and compares its output DataFrame with the expected CSV.
     """
     module_name = f"custom_parsers.{target_bank}_parser"
-    sample_pdf_path = f"data/{target_bank}/{target_bank}_sample.pdf"
-    expected_csv_path = f"data/{target_bank}/{target_bank}_sample.csv"
+    sample_pdf_path = f"data/{target_bank}/{target_bank} sample.pdf"
+    expected_csv_path = f"data/{target_bank}/result.csv"
 
     try:
         # Invalidate caches to ensure the latest code is imported
