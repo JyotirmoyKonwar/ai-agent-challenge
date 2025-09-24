@@ -3,7 +3,7 @@ This project contains a fully autonomous AI agent designed to write, test, and d
 ## Agent Architecture
 The agent follows a predetermined cycle of planning, execution, and self-correction, functioning as a state machine orchestrated using LangGraph. The process begins with a **Planner** node that creates a high-level plan for producing the required Python code for the parser. The **Coder** node then receives this plan, implements the strategy, and creates the initial parser version. The **Tester** node receives the generated code right away for verification against a sample CSV and PDF file. The state, along with the code and the particular error message, is sent to the **Corrector** node if the tests are unsuccessful, which analyzes the failure and generates a new, improved version of the code. This `generate → test → correct` loop continues until the tests pass or a set number of retries is exhausted, ensuring the agent can autonomously recover from its own errors.
 
-![Alt text](https://github.com/JyotirmoyKonwar/ai-agent-challenge/agent_graph_mermaid.png)
+![Alt text](agent_graph_mermaid.png)
 
 ### 5-Step Run Instructions
 Follow these five steps to set up the environment and run the agent.
