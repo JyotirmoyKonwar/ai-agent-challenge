@@ -35,14 +35,19 @@ uv add -r requirements.txt
 ```
 #### 4. Configure Your API Key
 The agent requires a Groq API key to function.
-1. Rename the `.env.example` file in the project's root directory to `.env`.
-2. Open the new `.env` file and paste in your API key obtained from the Groq Console.
+1. Create a new `.env` file in the project's root directory.
+2. Open the `.env` file and paste in your API key obtained from the Groq Console.
 #### 5. Run the Agent and Validate with Pytest
 First, run the agent to generate the parser. Then, run `pytest` to get the final validation.
-```
-# Step 5a: Run the agent to generate the code. Specify the Bank name and number of attempts the agent gets
-python agent.py --target icici --retries 5
 
-# Step 5b: Run pytest to validate the generated code
+##### Step 5a:
+Run the agent to generate the code. Specify the Bank name and number of attempts the agent gets
+```
+python agent.py --target icici --retries 5
+```
+
+##### Step 5b: 
+Run pytest to validate the generated code
+```
 pytest
 ```
