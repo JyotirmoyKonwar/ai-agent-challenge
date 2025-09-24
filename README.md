@@ -10,7 +10,7 @@ Follow these five steps to set up the environment and run the agent.
 #### 1. Clone the Repository
 Fork the project repository on GitHub and clone your fork to your local machine.
 ```
-git clone [https://github.com/JyotirmoyKonwar/ai-agent-challenge.git](https://github.com/JyotirmoyKonwar/ai-agent-challenge.git)
+git clone https://github.com/JyotirmoyKonwar/ai-agent-challenge.git
 cd ai-agent-challenge
 ```
 #### 2. Set Up the Python Environment
