@@ -9,10 +9,8 @@ def run_agent_app():
     This function initializes the UI, handles user input, configures the LLM model,
     sets up the graph, and runs the agentic process.
     """
-    # Load environment variables from .env file
     load_dotenv()
 
-    # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Run the AI agent to generate a PDF parser.")
     parser.add_argument("--target", type=str, required=True, help="The target bank for the parser (e.g., 'icici').")
     parser.add_argument("--retries", type=int, default=3, help="The maximum number of self-correction attempts.")
@@ -21,7 +19,7 @@ def run_agent_app():
     print(f"Starting agent for target: {args.target} with {args.retries} retries...")
 
     try:
-        # Configure the LLM
+        #LLM configuration
         obj_llm_config = GroqLLM()
         model = obj_llm_config.get_llm_model()
 
@@ -29,20 +27,19 @@ def run_agent_app():
             print("Error: LLM model could not be initialized. Check your API key.")
             return
 
-        # Initialize and set up the graph
+        #Initializing and setting the graph
         graph_builder = GraphBuilder(model)
         graph = graph_builder.build_graph()
 
-        # Define the initial state for the agent
+        #Initial states
         initial_state = {
             "target_bank": args.target,
             "plan": "",
             "generated_code": "",
             "error_message": "",
-            "retries_left": args.retries, # Use the value from the command line
+            "retries_left": args.retries,
         }
 
-        # Run the agentic graph
         final_state = graph.invoke(initial_state)
 
         print("\n--- AGENT RUN COMPLETE ---")

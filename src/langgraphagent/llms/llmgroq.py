@@ -8,8 +8,7 @@ class GroqLLM:
     """
     def __init__(self):
         """
-        The .env file is loaded in main.py, so we just need to
-        access the environment variables here.
+        The .env file is loaded in main.py, so we just need to access the environment variables here.
         """
         pass
 
@@ -25,7 +24,6 @@ class GroqLLM:
             sys.exit(1)
 
         try:
-            # LLaMA3-70b is a powerful and fast model well-suited for code generation.
             llm = ChatGroq(api_key=api_key, model_name="openai/gpt-oss-120b", temperature=0)
             return llm
         except Exception as e:

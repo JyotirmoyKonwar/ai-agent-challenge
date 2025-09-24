@@ -5,7 +5,7 @@ from src.langgraphagent.tools.file_tools import write_code_to_file
 class CoderNode:
     """
     Node 2: The Coder
-    Generates the Python code based on the plan.
+    Generate the Python code based on the plan.
     """
     def __init__(self, model):
         self.llm = model

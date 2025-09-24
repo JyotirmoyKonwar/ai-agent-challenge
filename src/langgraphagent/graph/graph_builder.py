@@ -7,7 +7,7 @@ from src.langgraphagent.nodes.corrector_node import CorrectorNode
 
 def should_continue(state: State) -> str:
     """
-    Conditional Edge: Decides whether to end, retry, or declare failure.
+    Conditional Edge: Decide whether to end, retry, or declare failure.
     """
     if state.get("error_message") is None:
         print("--- TASK COMPLETE ---")
@@ -21,7 +21,7 @@ def should_continue(state: State) -> str:
 
 class GraphBuilder:
     """
-    Builds the LangGraph agent graph.
+    Build the LangGraph agent graph.
     """
     def __init__(self, model):
         self.llm = model
@@ -31,19 +31,19 @@ class GraphBuilder:
         """
         Constructs the agent graph by defining nodes and edges.
         """
-        # Initialize node classes
+        # Initializing nodes
         planner_node = PlannerNode(self.llm)
         coder_node = CoderNode(self.llm)
         tester_node = TesterNode()
         corrector_node = CorrectorNode(self.llm)
 
-        # Add nodes to the graph
+        # Adding nodes
         self.graph_builder.add_node("planner", planner_node.process)
         self.graph_builder.add_node("coder", coder_node.process)
         self.graph_builder.add_node("tester", tester_node.process)
         self.graph_builder.add_node("corrector", corrector_node.process)
 
-        # Define the graph's flow (edges)
+        # Node Edges
         self.graph_builder.add_edge(START, "planner")
         self.graph_builder.add_edge("planner", "coder")
         self.graph_builder.add_edge("coder", "tester")
@@ -57,5 +57,4 @@ class GraphBuilder:
         )
         self.graph_builder.add_edge("corrector", "tester")
 
-        # Compile and return the graph
         return self.graph_builder.compile()

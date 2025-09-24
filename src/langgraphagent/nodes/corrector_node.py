@@ -20,7 +20,7 @@ class CorrectorNode:
             HumanMessage(
                 content=f"""The Python code you generated has failed the tests.
 
-                **Crucial Instruction:** The parser must dynamically identify the table headers (like 'Date', 'Description', 'Debit Amt', etc.) from the PDF content itself before extracting the rows. Do not use a hardcoded list of columns. The final DataFrame must match the structure of `data/{state["target_bank"]}/result.csv`.
+                **Inportant Instruction:** The parser must dynamically identify the table headers (like 'Date', 'Description', 'Debit Amt', etc.) from the PDF content itself before extracting the rows. Do not use a hardcoded list of columns. The final DataFrame must match the structure of `data/{state["target_bank"]}/result.csv`.
 
                 Original Plan: {state['plan']}
                 Your Code:

@@ -2,7 +2,7 @@ from typing import TypedDict, Optional
 
 class State(TypedDict):
     """
-    Represents the structure of the state used in the agent graph.
+    Representing the structure of the state used in the agent graph.
     """
     target_bank: str
     task: str
