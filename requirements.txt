@@ -1,0 +1,11 @@
+langgraph
+langchain
+langgraph
+langchain_community
+langchain_core
+langchain_groq
+langchain_huggingface
+pypdf2
+python-dotenv
+pandas
+numpy
